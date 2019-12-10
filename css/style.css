@@ -1,0 +1,44 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+* {
+    margin: 0;
+    padding: 0;
+
+    /*box-sizing: border-box;
+    Changes box model so that borders & paddings are not added to the total
+    width or height specified for a box;
+    */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    /*vh - at every point the height of this element should be 95 percent of the viewport height*/
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 213, 111, 0.8), 
+        rgba(40, 180, 131, 0.8)),
+        url(../img/hero.jpg);
+    /* cover -> fits element to the specified box size */
+    background-size: cover;
+    /*background-position -> enables an image to stay at a certain position based on viewport; */
+    background-position: top;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+}

@@ -10,10 +10,10 @@ Dark green: #28b485
     margin: 0;
     padding: 0;
 
-    /*box-sizing: border-box;
+    /** box-sizing: border-box;
     Changes box model so that borders & paddings are not added to the total
     width or height specified for a box;
-    */
+    **/
     box-sizing: border-box;
 }
 
@@ -27,18 +27,110 @@ body {
 }
 
 .header {
-    /*vh - at every point the height of this element should be 95 percent of the viewport height*/
+    position: relative;
+    /** vh - at every point the height of this element should be 95 percent of the viewport height*/
     height: 95vh;
     background-image: linear-gradient(
         to right bottom, 
         rgba(126, 213, 111, 0.8), 
         rgba(40, 180, 131, 0.8)),
         url(../img/hero.jpg);
-    /* cover -> fits element to the specified box size */
+    /** cover -> fits element to the specified box size */
     background-size: cover;
-    /*background-position -> enables an image to stay at a certain position based on viewport; */
+    /** background-position -> enables an image to stay at a certain position based on viewport; */
     background-position: top;
-
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
 
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+/** centering a box **/
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /** transform: translate -> this is in relation to the item itself */
+    transform: translate(-50%, -50%);
+}
+
+/** block elements utilise the entire width available **/
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    /** Determines if the backpart of an element is visible or hidden 
+    to the user when transforming **/
+    backface-visibility: hidden;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*     
+    animation-delay: 3s;
+    animation-iteration-count: 3;
+     */
+}
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+
+    animation: moveInRight 1s ease-out;
+}
+/** NB
+    For browser performance it's best to only ever animate 
+    2 diffrent properties ie opacity and transform
+
+     There are two types of animations
+    1. Transitions
+    2. Keyframes
+**/
+@keyframes moveInLeft {
+    /* Where animation starts */
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+     /* Where animation ends */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* Where animation starts */
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+     /* Where animation ends */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }

@@ -57,8 +57,10 @@ body {
     position: absolute;
     top: 40%;
     left: 50%;
-    /** transform: translate -> this is in relation to the item itself */
+    /** transform: translate -> this is in relation to the item itself **/
     transform: translate(-50%, -50%);
+    /** Aligns all inline properties to the center of this parent element **/
+    text-align: center;
 }
 
 /** block elements utilise the entire width available **/
@@ -69,6 +71,7 @@ body {
     /** Determines if the backpart of an element is visible or hidden 
     to the user when transforming **/
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -93,13 +96,14 @@ body {
 
     animation: moveInRight 1s ease-out;
 }
+
 /** NB
     For browser performance it's best to only ever animate 
     2 diffrent properties ie opacity and transform
 
      There are two types of animations
-    1. Transitions
-    2. Keyframes
+    1. Transitions => Easier
+    2. Keyframes => Complex
 **/
 @keyframes moveInLeft {
     /* Where animation starts */
@@ -133,4 +137,77 @@ body {
         opacity: 1;
         transform: translate(0);
     }
+}
+
+@keyframes moveInBottom {
+    /* Where animation starts */
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+     /* Where animation ends */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /** box-shadow: offset X-axis, offset Y-axis, blur property, color **/
+    box-shadow: 0 10px 20px rgba(0,0,0 .2);
+}
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0 .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+
+    /** transition properies are set on the initial element **/
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6); 
+    opacity: 0;
+}
+
+.btn-animated {
+    /** animation: name duration type delay **/
+
+    animation: moveInBottom .5s ease-out .75s;
+
+    /** automatically applies styles of 0% before animation starts **/
+    animation-fill-mode: backwards;
 }

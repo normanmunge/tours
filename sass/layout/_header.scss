@@ -1,0 +1,37 @@
+
+.header {
+    position: relative;
+    /** vh - at every point the height of this element should be 95 percent of the viewport height*/
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero.jpg);
+    /** cover -> fits element to the specified box size */
+    background-size: cover;
+    /** background-position -> enables an image to stay at a certain position based on viewport; */
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    /** centering a box **/
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /** transform: translate -> this is in relation to the item itself **/
+        transform: translate(-50%, -50%);
+        /** Aligns all inline properties to the center of this parent element **/
+        text-align: center;
+    }
+}

@@ -1,0 +1,33 @@
+####IMPORTANT INFORMATION
+
+1. THE BOX MODEL
+
+    Padding: transparent area around content, inside of the box 
+    Margin: space btn boxes 
+    Border: goes around padding and content 
+    Fill area: area that gets filled with bckgrnd color/image
+
+
+    Box-sizing: border-box --> The height and width will be defined for the entire box and not only for the content area.
+
+
+2. BOX TYPES: Inline , Block-level and Inline-Block
+
+    Block-level boxes (display: block): Elements formatted visually as blocks, 100% of parent's width, vertical one after another
+
+    Inline-block (display: inline-block): A mix of block and inline, occupies only content's space, no line-breaks, box-model applies as showed.
+
+    Inline-boxes (display: inline): Content is distributed in lines, occupies only content's space, no line-breaks, no heights and widths, paddings and margins only horizontal (left and right)
+
+
+3. POSITIONING SCHEMES: Normal flow, Absoulute positioning, Floats
+
+    Normal flow (position: relative): Default positioning scheme, NOT floated, NOT absolutely positioned, Elements laid out according to source code
+
+    Floats (float: left/right): Element is removed from the normal flow, text and inline elements will wrap around floated element, the container will not adjust its height to the element (solution is to use clearfix ie overflow: auto)
+
+    Absoulute positioning (position: absolute/fixed): Element is removed from the normal flow, no impact on surrounding content or elements, We use top, bottom, left and right to offset the element from its relatively positioned container.
+
+4. STACKING CONTEXTS
+
+    Determine which order elements are laid out on browser eg z-index, opacity, transform, filter

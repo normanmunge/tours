@@ -1,0 +1,24 @@
+{
+  "name": "tours",
+  "version": "1.0.0",
+  "description": "landing page for tours site",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/normanmunge/tours.git"
+  },
+  "author": "Norman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/normanmunge/tours/issues"
+  },
+  "homepage": "https://github.com/normanmunge/tours#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  },
+  "dependencies": {}
+}

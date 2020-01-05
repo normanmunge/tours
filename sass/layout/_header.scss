@@ -12,7 +12,10 @@
     background-size: cover;
     /** background-position -> enables an image to stay at a certain position based on viewport; */
     background-position: top;
+
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    
 
     &__logo-box {
         position: absolute;

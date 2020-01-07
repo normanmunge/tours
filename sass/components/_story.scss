@@ -1,0 +1,73 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow:  0 3rem 6rem rgba($color_black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+
+    transform: skewX(-12deg);
+
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+
+        //shape-outside makes element appear like a certain shape eg circle ie eg an element like a paragraph shapes itself to the adjacent shape
+        // shape-outside: circle($diameter at center horizontal center vertical);
+        //element must be floated
+        //in safari needs a -webkit property
+        //float needs a defined height and width
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+
+        //clip path gives an element a shape
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+
+        //if an element is floated and we want to move it it's best practice to use a transform translate property
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+    }
+
+    &__img {
+        //flexible elements always need a height
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        //backface most times fixes animation weirdness and transition issues
+        backface-visibility: hidden;
+        transition: all .5s;
+    }
+    &__text {
+        transform: skewX(12deg);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+
+    //as soon as hover then do the caption css
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+
+        //filter -> to blur out an image, brightness above 100->brighter and lower->darker
+        filter: blur(3px) brightness(80%);
+    }
+}

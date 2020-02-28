@@ -31,3 +31,28 @@
 4. STACKING CONTEXTS
 
     Determine which order elements are laid out on browser eg z-index, opacity, transform, filter
+
+
+Use caniuse.com to show properties that aren't being compatible only with modern browsers
+@support feature queries helps us implement graceful degradation on selected properties on websites ie providing a top notch version to modern browsers and providing an adopted version to browsers that don't support these new features/
+bakdrop filter - applies a filter to what's behind an element. Doesn't work on Google Chrome
+
+FLEX BOXES 
+Cross axis -> vertical
+Main axis -> horizontal
+
+1. PROPERTIES FOR A CONTAINER 
+    - flex-drection: row, row-reverse, column, column-reverse
+    - flex-wrap: Determines if items shoulf wrap in new line
+    - justify-content: How items should align  (MOST IMPORTANT)
+    - align-itmes: Similar to justify-content but defines how items should align across the cross axis (MOST IMPORTANT)
+    - align-content: Only applies when there is more than one row of flex items along the cross axis
+
+2. PROPERTIES FOR AN ITEM
+    - align-item: Similar to align-items but only for one item
+    - order: Defines the order for how the flex item should appear in the container
+    - flex-grow: Define how much an item can grow
+    - flex-shrinK: Defines how much an item should shrinK
+    - flex-basis: Define its base width
+
+        Can be combined to one attribute: flex: 0 1 auto;

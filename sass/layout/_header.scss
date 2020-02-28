@@ -2,20 +2,58 @@
 .header {
     position: relative;
     /** vh - at every point the height of this element should be 95 percent of the viewport height*/
-    height: 95vh;
+    height: 85vh;
     background-image: linear-gradient(
         to right bottom, 
         rgba($color-primary-light, 0.8), 
         rgba($color-primary-dark, 0.8)),
-        url(../img/hero.jpg);
+        url(../img/hero-small.jpg);
     /** cover -> fits element to the specified box size */
     background-size: cover;
     /** background-position -> enables an image to stay at a certain position based on viewport; */
     background-position: top;
 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
     
+    //1920pi -> resolution for apple screen 
+    //if resolution is higher than 1920pi then change the image
+    // @media (min-resolution: 1920pi) {
+    //     background-image: linear-gradient(
+    //         to right bottom, 
+    //         rgba($color-primary-light, 0.8), 
+    //         rgba($color-primary-dark, 0.8)),
+    //         url(../img/hero.jpg);
+    // }
+
+    // , comma just implies OR ie apply this code when either of the conditions happens
+    //min-width: -> on devices larger than the set width
+    //safari doesn't support min-resolution but supports -webkit-min-device-pixel-ration
+    @media (min-resolution: 1920dpi) and (min-width: 37.5em),
+            (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+            (min-width: 125em) {
+                background-image: linear-gradient(
+                to right bottom, 
+                rgba($color-primary-light, 0.8), 
+                rgba($color-primary-dark, 0.8)),
+                url(../img/hero.jpg);
+    }
+    //the minimum width for this element to start happening
+    // @media (min-width: 2000px) {
+    //     background-image: linear-gradient(
+    //     to right bottom, 
+    //     rgba($color-primary-light, 0.8), 
+    //     rgba($color-primary-dark, 0.8)),
+    //     url(../img/hero.jpg);
+    // }
+
+    @include respond(respond) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
 
     &__logo-box {
         position: absolute;

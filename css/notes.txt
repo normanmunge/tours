@@ -56,3 +56,12 @@ Main axis -> horizontal
     - flex-basis: Define its base width
 
         Can be combined to one attribute: flex: 0 1 auto;
+
+
+
+NPM 
+IN PACKAGE JSON
+1. concat.css -> npm install concat --save-dev :-> This package concats all css files and puts them into one file
+2. prefix.css -> npm install autoprefixer --save-dev, for it to work you need to install postcss so npm install postcss-cli --save-dev all as dev dependencies
+3. compress.css -> node will compress them no need to use a library
+4. To start our devserver and liveserver just run npm run start after adding them in the package file

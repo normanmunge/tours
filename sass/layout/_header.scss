@@ -21,7 +21,7 @@
     
     //1920pi -> resolution for apple screen 
     //if resolution is higher than 1920pi then change the image
-    // @media (min-resolution: 1920pi) {
+    // @media only screen and (min-resolution: 1920pi) {
     //     background-image: linear-gradient(
     //         to right bottom, 
     //         rgba($color-primary-light, 0.8), 
@@ -32,9 +32,9 @@
     // , comma just implies OR ie apply this code when either of the conditions happens
     //min-width: -> on devices larger than the set width
     //safari doesn't support min-resolution but supports -webkit-min-device-pixel-ration
-    @media (min-resolution: 1920dpi) and (min-width: 37.5em),
-            (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-            (min-width: 125em) {
+    @media only screen and (min-resolution: 1920dpi) and (min-width: 37.5em),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+           only screen and (min-width: 125em) {
                 background-image: linear-gradient(
                 to right bottom, 
                 rgba($color-primary-light, 0.8), 
@@ -42,7 +42,7 @@
                 url(../img/hero.jpg);
     }
     //the minimum width for this element to start happening
-    // @media (min-width: 2000px) {
+    // @media only screen and(min-width: 2000px) {
     //     background-image: linear-gradient(
     //     to right bottom, 
     //     rgba($color-primary-light, 0.8), 

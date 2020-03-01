@@ -44,15 +44,36 @@ Main axis -> horizontal
 1. PROPERTIES FOR A CONTAINER 
     - flex-drection: row, row-reverse, column, column-reverse
     - flex-wrap: Determines if items shoulf wrap in new line
-    - justify-content: How items should align  (MOST IMPORTANT)
+    - justify-content: How items should align across the main axis  (MOST IMPORTANT)
+        a) Space-evenly --> all the spaces in the items are the same ie  
+                    ----1----2----3----4----5----
+        a) Space-bewteen --> all the spaces btn the items are the same ie  
+                    1----2----3----4----5
+        b) Space-around --> all the spaces around in the left and the right of the items are the same ie 
+                    --1----2----3----4--
+        c) Flex-start -> When the items start at the start
+        d) Flex-end -> When the items are at the end
+        e) Center
     - align-itmes: Similar to justify-content but defines how items should align across the cross axis (MOST IMPORTANT)
+        -> It aligns the items based on the highest height of the items so if flex-start is set all will start at height 0 with the largest
+            item going till the end of the height of that item
+
+        ->The default is align-items: stretch
+            -It stretches all items to match the height of the heighest height item
+
+        -> Align-items: baseline --> It aligns the itesm to their common text eg if one had a higher font-size they would align with the bottom of that item's text
     - align-content: Only applies when there is more than one row of flex items along the cross axis
 
 2. PROPERTIES FOR AN ITEM
+    -align-self: Overwrites the justify-content in the main container for a particular item: eg align-self: flex-end
     - align-item: Similar to align-items but only for one item
     - order: Defines the order for how the flex item should appear in the container
     - flex-grow: Define how much an item can grow
+        ->An item grows and fills all the spaces available based on the property given by the main container's justify content
+        -> Flex-grow:1 or flex:1 on an individual item it makes it occupy all the available white space the item can including the space set by justify content on the others
+
     - flex-shrinK: Defines how much an item should shrinK
+        -> When an item has a flex-shrink property set to 0 it means that it shouldn't decrease in width with the viewport width or height
     - flex-basis: Define its base width
 
         Can be combined to one attribute: flex: 0 1 auto;

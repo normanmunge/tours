@@ -37,3 +37,9 @@ body {
         padding: 0;
     }
 }
+
+//selected text in our dom element
+::selection {
+    background-color: $color_primary;
+    color: $color_white;
+}
